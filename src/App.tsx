@@ -364,7 +364,7 @@ const App = () => {
       <div className="mt-12 text-center flex items-center justify-center gap-6 opacity-30 grayscale contrast-200">
         <div className="font-black text-lg tracking-tighter">INJECTIVE</div>
         <div className="w-1 h-1 bg-black rounded-full" />
-        <div className="font-black text-lg tracking-tighter">SOULLINK</div>
+        <div className="font-black text-lg tracking-tighter">N1NJ4</div>
       </div>
     </div>
   );

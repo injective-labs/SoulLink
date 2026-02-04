@@ -1,16 +1,17 @@
 export const APP_SLOGANS = {
-  TITLE: "SoulLink",
-  SUBTITLE: "Injective Ecosystem Verification",
-  DESCRIPTION: "Connect your Injective wallet to verify your Origin NFT status and link your Soul Passport.",
-  FOOTER_TEXT: "Identity Secured On Injective Registry",
+  TITLE: "N1NJ4 Verification",
+  SUBTITLE: "Verify your humanity with NFT + Passkey",
+  DESCRIPTION: "Connect your Injective wallet to verify your Origin NFT status and link your Soulbound Passport.",
+  FOOTER_TEXT: "Human Verification Completed",
+  PASSPORT_TITLE: "N1NJ4 PASSPORT",
   LOADING: {
-    VERIFYING: "Verifying Identity...",
-    CONNECTING: "Connecting...",
-    SEARCHING: "Searching Soul Registry...",
-    CREATING_PASSKEY: "Creating Secure Passkey...",
-    BINDING: "Linking to Soul Registry..."
+    VERIFYING: "Checking NFT ownership...",
+    CONNECTING: "Connecting wallet...",
+    SEARCHING: "Checking existing binding...",
+    CREATING_PASSKEY: "Creating Passkey...",
+    BINDING: "Binding..."
   },
-  VULNERABILITY_CHECK: "Please authorize the secure prompt on your device",
+  VULNERABILITY_CHECK: "Please authorize in INJ Pass",
   CONNECT_WALLET: "Connect Wallet",
-  BIND_BTN: "Secure SoulLink",
+  BIND_BTN: "Bind as Soulbound Token",
 };

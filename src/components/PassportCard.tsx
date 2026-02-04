@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
 import type { BindingRecord } from '../types';
+import { APP_SLOGANS } from '../constants';
 
 interface PassportCardProps {
   record: BindingRecord;
@@ -25,7 +26,7 @@ export const PassportCard: React.FC<PassportCardProps> = ({ record }) => {
 
       <div className="bg-black text-white p-5 text-center">
         <div className="mb-2 text-2xl">🥷</div>
-        <h2 className="text-xl font-black tracking-[0.2em]">SOULLINK PASSPORT</h2>
+        <h2 className="text-xl font-black tracking-[0.2em]">{APP_SLOGANS.PASSPORT_TITLE}</h2>
       </div>
 
       <div className="p-6 space-y-5">
