@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Layers, Fingerprint, Loader2, AlertCircle, CheckCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ethers } from 'ethers';
-import { NFT_CONTRACT_ADDRESS, INJECTIVE_TESTNET, ERC721_ABI, APP_SLOGANS } from './constants';
+import { NFT_CONTRACT_ADDRESS, NETWORK_CONFIG, ERC721_ABI, APP_SLOGANS, DB_TABLE_NAME } from './constants';
 import type { AppStep, NFTData, BindingRecord } from './types';
 import { NFTCard } from './components/NFTCard';
 import { PassportCard } from './components/PassportCard';
@@ -57,14 +57,14 @@ const App = () => {
       await provider.send("eth_requestAccounts", []);
       
       const network = await provider.getNetwork();
-      if (network.chainId !== INJECTIVE_TESTNET.chainId) {
+      if (network.chainId !== NETWORK_CONFIG.chainId) {
         try {
           await (window as any).ethereum.request({
             method: "wallet_switchEthereumChain",
-            params: [{ chainId: INJECTIVE_TESTNET.chainIdHex }],
+            params: [{ chainId: NETWORK_CONFIG.chainIdHex }],
           });
         } catch (e) {
-          setError('Please switch to Injective Testnet');
+          setError('Please switch to Injective Network');
           return;
         }
       }
@@ -87,7 +87,7 @@ const App = () => {
       setLoadingText(APP_SLOGANS.LOADING.SEARCHING);
       
       const { data, error } = await supabase
-        .from('bindings')
+        .from(DB_TABLE_NAME)
         .select('*')
         .eq('address', address.toLowerCase())
         .single();
@@ -118,7 +118,7 @@ const App = () => {
     try {
       setLoading(true);
       setLoadingText(APP_SLOGANS.LOADING.VERIFYING);
-      const provider = new ethers.providers.JsonRpcProvider(INJECTIVE_TESTNET.rpcUrl);
+      const provider = new ethers.providers.JsonRpcProvider(NETWORK_CONFIG.rpcUrl);
       const contract = new ethers.Contract(NFT_CONTRACT_ADDRESS, ERC721_ABI, provider);
       const balance = await contract.balanceOf(address);
 
@@ -144,7 +144,7 @@ const App = () => {
 
       // Double check Supabase first
       const { data: existing } = await supabase
-        .from('bindings')
+        .from(DB_TABLE_NAME)
         .select('*')
         .eq('address', userAddress.toLowerCase())
         .single();
@@ -200,7 +200,7 @@ const App = () => {
       const credentialId = btoa(String.fromCharCode(...new Uint8Array(credential.rawId)));
 
       const { error: insertError } = await supabase
-        .from('bindings')
+        .from(DB_TABLE_NAME)
         .insert([{
           address: userAddress.toLowerCase(),
           passkey_id: credential.id,
