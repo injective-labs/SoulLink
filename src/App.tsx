@@ -28,7 +28,7 @@ const App = () => {
     }
   }, []);
 
-  const handleAutoLogin = async (address: string, sig: string) => {
+  const handleAutoLogin = async (address: string, _sig: string) => {
     try {
       setLoading(true);
       setLoadingText(APP_SLOGANS.LOADING.VERIFYING);
