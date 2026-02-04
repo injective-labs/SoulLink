@@ -39,7 +39,18 @@ export const PassportCard: React.FC<PassportCardProps> = ({ record }) => {
           <InfoRow label="Passkey ID" value={record.passkeyId} isHash truncate />
           
           <div className="grid grid-cols-2 gap-4">
-            <InfoRow label="Date" value={new Date(record.timestamp).toLocaleDateString()} />
+            <InfoRow 
+              label="Date" 
+              value={new Date(record.timestamp).toLocaleString('zh-CN', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+              }).replace(/\//g, '-')} 
+            />
             <InfoRow label="Status" value="Permanent" valueClassName="text-green-600 font-bold" />
           </div>
         </div>
