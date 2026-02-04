@@ -1,5 +1,4 @@
 -- SQL Schema for SoulLink (Apply this in Supabase SQL Editor)
-
 CREATE TABLE IF NOT EXISTS public.bindings (
     id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
     address TEXT UNIQUE NOT NULL,            -- Wallet Address (Lowercased)
