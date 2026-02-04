@@ -1,0 +1,25 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+:root {
+  --primary: #000000;
+  --background: #FFFFFF;
+}
+
+body {
+  @apply bg-white min-h-screen flex items-center justify-center p-4 antialiased text-black;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+/* Custom styles not easily covered by tailwind */
+.hash-font {
+  @apply font-mono text-[11px] sm:text-xs break-all bg-surface p-2 rounded-xl border border-border-light;
+}
+
+.stamp-effect {
+  @apply rotate-[-12deg] border-4 border-red-500 p-2 rounded-xl opacity-80 inline-block;
+}
+
+.stamp-inner-effect {
+  @apply border-2 border-red-500 px-4 py-2 rounded-sm text-center text-red-500 font-black text-lg leading-tight;
+}
