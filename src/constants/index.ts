@@ -1,8 +1,10 @@
 export * from './slogan';
 
-export const NFT_CONTRACT_ADDRESS = import.meta.env.VITE_NFT_CONTRACT_ADDRESS || "";
+export const DB_TABLE_NAME = import.meta.env.VITE_DB_TABLE_NAME;
 
-export const INJECTIVE_TESTNET = {
+export const NFT_CONTRACT_ADDRESS = import.meta.env.VITE_NFT_CONTRACT_ADDRESS;
+
+export const NETWORK_CONFIG = {
   chainId: Number(import.meta.env.VITE_CHAIN_ID) || 0,
   chainIdHex: import.meta.env.VITE_CHAIN_ID_HEX || "",
   chainName: import.meta.env.VITE_CHAIN_NAME || "",
